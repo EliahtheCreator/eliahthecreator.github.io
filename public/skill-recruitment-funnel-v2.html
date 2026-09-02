@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>招聘漏斗分析 Skill 使用文档（v2.0）</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f3ee;
+        --card: #fffdf9;
+        --text: #1c1c1c;
+        --muted: rgba(28, 28, 28, 0.68);
+        --line: rgba(28, 28, 28, 0.08);
+        --accent: #1c1c1c;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        background: linear-gradient(180deg, #f8f5f0 0%, #f2efe9 100%);
+        color: var(--text);
+      }
+
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 36px 20px 56px;
+      }
+
+      .hero {
+        padding: 24px 24px 18px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: var(--card);
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: rgba(28, 28, 28, 0.54);
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 28px;
+        line-height: 1.2;
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .meta span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: #f4f4f4;
+        color: rgba(28, 28, 28, 0.74);
+        font-size: 12px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 14px;
+        margin-top: 16px;
+      }
+
+      .card {
+        padding: 20px 22px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--card);
+      }
+
+      h2 {
+        margin: 0 0 12px;
+        font-size: 18px;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.72;
+      }
+
+      ul,
+      ol {
+        margin: 0;
+        padding-left: 20px;
+        color: var(--muted);
+        line-height: 1.72;
+      }
+
+      li + li {
+        margin-top: 6px;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .chips span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #fff;
+        font-size: 12px;
+      }
+
+      .footer {
+        margin-top: 18px;
+        color: rgba(28, 28, 28, 0.5);
+        font-size: 12px;
+      }
+
+      .back {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 16px;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      @media (max-width: 720px) {
+        .wrap {
+          padding-inline: 14px;
+        }
+
+        h1 {
+          font-size: 24px;
+        }
+
+        .hero,
+        .card {
+          padding-inline: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="hero">
+        <p class="eyebrow">Skill 文档</p>
+        <h1>招聘漏斗分析 Skill 使用文档（v2.0）</h1>
+        <div class="meta">
+          <span>支持社招 + 实习生</span>
+          <span>10 环节标准漏斗</span>
+          <span>流失原因深度归因</span>
+        </div>
+      </section>
+
+      <div class="grid">
+        <article class="card">
+          <h2>功能定位</h2>
+          <p>上传招聘台账 Excel 后，自动完成数据清洗、10 环节漏斗计算、单周/双周/全量分析、流失原因深度归因、优化策略输出，并可进一步搭建飞书多维表格和可视化仪表盘。</p>
+        </article>
+
+        <article class="card">
+          <h2>适用场景</h2>
+          <p>适合 HR / 招聘岗做周度复盘、渠道优化、面试流程改进，以及社招 + 实习生混合招聘的数据分析。</p>
+        </article>
+
+        <article class="card">
+          <h2>前置规则</h2>
+          <ul>
+            <li>岗位名含“实习生”即按实习生处理，否则按社招处理。</li>
+            <li>HR 前置初筛不合格的简历不录入台账，也不统计初筛环节。</li>
+            <li>漏斗起点是“录入台账并推送给业务”的候选人。</li>
+            <li>如果只看某一类岗位，按用户明确要求筛选。</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>10 环节标准漏斗</h2>
+          <div class="chips">
+            <span>1 总推送人数</span>
+            <span>2 简历通过人数</span>
+            <span>3 一面流失人数</span>
+            <span>4 一面通过人数</span>
+            <span>5 二面流失人数</span>
+            <span>6 二面通过人数</span>
+            <span>7 HR 面流失人数</span>
+            <span>8 HR 面通过人数</span>
+            <span>9 Offer 人数</span>
+            <span>10 入职人数</span>
+          </div>
+          <p style="margin-top: 12px;">关键口径：放弃面试统一归为“放弃面试”，不计入任何一轮面试流失；终面通过不等于发 offer；在途人员单独标注。</p>
+        </article>
+
+        <article class="card">
+          <h2>岗位族与优先级</h2>
+          <ul>
+            <li>岗位族共 6 类：投放、创意/设计、SEO、KOL 与社媒、联盟营销、技术/其他。</li>
+            <li>优先级仅针对实习生岗位：p00 > p0 > p1。</li>
+            <li>p00：多语言 SEO 实习生、海外 KOL 实习生、海外 KOC 实习生。</li>
+            <li>p0：海外增长实习生、广告素材实习生、海外广告制作实习生、国内 KOL 实习生。</li>
+            <li>p1：国内广告投放实习生、SEO 实习生、海外社媒实习生、联盟营销实习生。</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>在途状态</h2>
+          <p>以下状态统一标记为在途：简历评估中、简历评估通过、一面中、二面中、HR 面 / 终面中、offer 中、测试中、待定、储备。</p>
+        </article>
+
+        <article class="card">
+          <h2>执行流程</h2>
+          <ol>
+            <li>读取 Excel 并清洗字段：岗位、推送日期、姓名、环节、简历来源、备注 / 不通过原因。</li>
+            <li>检查环节取值、重复记录和状态是否标注错误；必要时先与用户确认。</li>
+            <li>按 10 环节输出漏斗数据：人数、环比转化率、流失率、在途人数。</li>
+            <li>按需做单周、双周或全量对比，并标注在途人数带来的时点偏差。</li>
+            <li>对每个流失环节做原因分类、根因分析和可落地优化策略。</li>
+            <li>最后汇总通用策略、TOP3 流失岗位和下周重点动作。</li>
+          </ol>
+        </article>
+
+        <article class="card">
+          <h2>关键注意事项</h2>
+          <ul>
+            <li>漏斗图组件有渲染 bug 时，改用 bar 条形图模拟。</li>
+            <li>长文本组件容易乱码，建议拆成多个短文本模块。</li>
+            <li>累计漏斗需要手动写入辅助表，不要只靠简单分组统计。</li>
+            <li>遇到状态错误、重复记录，先确认再修改，不要自行假设。</li>
+            <li>每次更新数据后，要同步刷新辅助表和汇总结果。</li>
+          </ul>
+        </article>
+      </div>
+
+      <a class="back" href="./index.html">返回主页</a>
+      <div class="footer">整理版 Skill 文档 · 依据 v2.0 内容做的本地页面</div>
+    </main>
+  </body>
+</html>

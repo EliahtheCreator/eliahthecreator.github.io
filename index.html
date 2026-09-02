@@ -1,0 +1,1235 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eliah's Here</title>
+    <meta
+      name="description"
+      content="石光祖的个人主页，专注世界模型与多模态算法人才挖掘。"
+    />
+    <style>
+:root {
+  --foreground: #1c1c1c;
+  --muted: #727274;
+  --soft: #f7f7f7;
+  --line: rgba(28, 28, 28, 0.1);
+  --card: #ffffff;
+  --container: 960px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--foreground);
+  font-family: Inter, "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  letter-spacing: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+svg {
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  color: var(--foreground);
+  transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.site-header.is-scrolled,
+.site-header.menu-open {
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--foreground);
+  border-bottom-color: var(--line);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(18px);
+}
+
+.nav-shell {
+  width: min(var(--container), calc(100% - 48px));
+  height: 64px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-links a,
+.mobile-menu a {
+  font-size: 13px;
+  font-weight: 500;
+  color: currentColor;
+  opacity: 0.78;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+
+.nav-links a:hover,
+.mobile-menu a:hover {
+  opacity: 1;
+}
+
+.menu-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  color: currentColor;
+  padding: 9px;
+}
+
+.menu-btn span {
+  display: block;
+  height: 2px;
+  margin: 5px 0;
+  background: currentColor;
+  border-radius: 2px;
+}
+
+.mobile-menu {
+  display: none;
+  width: min(var(--container), calc(100% - 48px));
+  margin: 0 auto;
+  padding: 8px 0 18px;
+  gap: 14px;
+}
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg,
+.hero-shade,
+.hero-fade {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-shade {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.12) 46%, rgba(0, 0, 0, 0.3));
+}
+
+.hero-fade {
+  top: auto;
+  height: 36%;
+  background: linear-gradient(0deg, #fff 0%, rgba(255, 255, 255, 0.88) 35%, rgba(255, 255, 255, 0) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(544px, calc(100% - 48px));
+  padding: 80px 0 64px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.hero-eyebrow {
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.3em;
+  font-size: 14px;
+}
+
+.hero h1 {
+  margin: 0;
+  color: #fff;
+  font-size: 96px;
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.hero-title {
+  margin: 26px 0 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 300;
+}
+
+.hero-subtitle {
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.scroll-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 112px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+
+.scroll-link i {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0));
+}
+
+.section {
+  padding: 112px 0;
+}
+
+.section-soft {
+  background: var(--soft);
+}
+
+.container {
+  width: min(var(--container), calc(100% - 48px));
+  margin: 0 auto;
+}
+
+h2 {
+  margin: 0 0 34px;
+  font-size: 36px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+h3 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.portrait-wrap {
+  position: relative;
+}
+
+.portrait-glow {
+  position: absolute;
+  inset: -12px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #f2f2f2, #dfdfdf);
+  filter: blur(1px);
+}
+
+.portrait {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.12);
+}
+
+.mobile-name {
+  display: none;
+}
+
+.about-body h2 {
+  margin-bottom: 22px;
+}
+
+.lead {
+  margin: 0;
+  color: rgba(28, 28, 28, 0.8);
+  font-size: 18px;
+  line-height: 1.85;
+  font-weight: 300;
+}
+
+.pill-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  min-height: 42px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: #f7f7f7;
+  border: 1px solid rgba(28, 28, 28, 0.04);
+  font-size: 14px;
+  font-weight: 700;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.pill-button:hover {
+  background: #ececec;
+  transform: translateY(-1px);
+}
+
+.contact-block {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(28, 28, 28, 0.09);
+}
+
+.eyebrow.small {
+  margin-bottom: 16px;
+  letter-spacing: 0.2em;
+}
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.contact-row a,
+.contact-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(28, 28, 28, 0.7);
+  font-size: 14px;
+}
+
+.contact-row svg {
+  color: var(--muted);
+}
+
+.dual-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+}
+
+.stack-col {
+  display: grid;
+  align-content: start;
+  gap: 32px;
+}
+
+.self-evaluation h2 {
+  margin-bottom: 0;
+  font-size: 30px;
+}
+
+.keyword-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.keyword-grid article,
+.project-card,
+.education-card,
+.experience-card,
+.plain-card,
+.skill-grid article,
+.award-list article {
+  border: 1px solid rgba(28, 28, 28, 0.07);
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.02);
+}
+
+.keyword-grid article {
+  position: relative;
+  min-height: 74px;
+  padding: 24px 24px 24px 68px;
+  border-radius: 12px;
+}
+
+.keyword-grid span {
+  position: absolute;
+  left: 24px;
+  top: 26px;
+  display: block;
+  margin-bottom: 0;
+  color: #b9b9bb;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.keyword-grid p {
+  margin: 0;
+  color: rgba(28, 28, 28, 0.74);
+  font-size: 15px;
+}
+
+.project-list {
+  display: grid;
+  gap: 16px;
+}
+
+.project-card {
+  display: block;
+  padding: 24px;
+  border-radius: 16px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+}
+
+.project-card p {
+  margin: 12px 0 0;
+  color: rgba(28, 28, 28, 0.68);
+  font-size: 15px;
+  line-height: 1.62;
+}
+
+.project-card h3 {
+  font-size: 17px;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.project-actions a {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: rgba(28, 28, 28, 0.62);
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.education-card,
+.plain-card {
+  position: relative;
+  padding: 32px;
+  border-radius: 20px;
+}
+
+.edu-main,
+.role-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 18px;
+  align-items: start;
+}
+
+.edu-main img {
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+time {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.edu-main p,
+.role-head p,
+.role-head span,
+.split-head p,
+.muted {
+  margin: 6px 0 0;
+  color: rgba(28, 28, 28, 0.68);
+}
+
+.course-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 26px 0 18px;
+}
+
+.course-grid span,
+.tags span,
+.skill-grid span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 13px;
+  border-radius: 999px;
+  background: #f0f0f0;
+  color: rgba(28, 28, 28, 0.68);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.timeline {
+  display: grid;
+  gap: 32px;
+}
+
+.experience-card {
+  padding: 32px;
+  border-radius: 20px;
+}
+
+.role-head img {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.experience-card ul,
+.plain-card ul {
+  margin: 24px 0 0;
+  padding-left: 18px;
+  color: rgba(28, 28, 28, 0.72);
+}
+
+.experience-card li,
+.plain-card li {
+  margin: 10px 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.split-head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.skill-grid {
+  display: grid;
+  gap: 32px;
+}
+
+.skill-grid article {
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.skill-grid h3 {
+  margin-bottom: 12px;
+  color: rgba(28, 28, 28, 0.7);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.skill-grid span {
+  margin: 0 8px 10px 0;
+}
+
+.subsection {
+  margin-top: 80px;
+}
+
+.skills .container {
+  width: min(896px, calc(100% - 48px));
+}
+
+.skills h2 {
+  font-size: 30px;
+  margin-bottom: 32px;
+}
+
+.award-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.award-list article {
+  position: relative;
+  min-height: 81px;
+  padding: 20px 20px 20px 68px;
+  border-radius: 12px;
+}
+
+.award-list article::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 22px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f5f5f5;
+}
+
+.award-list strong,
+.award-list span {
+  display: block;
+}
+
+.award-list span {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.hobby-icons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.hobby-icons div {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(28, 28, 28, 0.07);
+}
+
+.hobby-icons span {
+  font-size: 22px;
+}
+
+.gallery-title {
+  margin: 0 0 18px;
+  font-size: 20px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.gallery figure {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  margin: 0;
+}
+
+.gallery figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0) 52%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.gallery figure:hover::after,
+.gallery figure:hover figcaption {
+  opacity: 1;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.gallery figcaption {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 1;
+  margin-top: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 12px;
+  font-weight: 300;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.footer {
+  padding: 40px 24px 56px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.footer p {
+  margin: 6px 0;
+}
+
+.reveal {
+  opacity: 0.01;
+  transform: translateY(10px);
+  transition: opacity 0.36s ease, transform 0.36s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 760px) {
+  .nav-shell {
+    width: calc(100% - 48px);
+    height: 56px;
+  }
+
+  .brand {
+    font-size: 14px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .mobile-menu.is-open {
+    display: grid;
+  }
+
+  .hero-content {
+    width: calc(100% - 40px);
+    padding-top: 76px;
+  }
+
+  .hero-bg {
+    object-position: 50% center;
+  }
+
+  .hero-eyebrow {
+    margin-bottom: 22px;
+    font-size: 12px;
+  }
+
+  .hero h1 {
+    font-size: 56px;
+  }
+
+  .hero-title {
+    margin-top: 22px;
+    font-size: 21px;
+    line-height: 1.35;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+  }
+
+  .scroll-link {
+    margin-top: 78px;
+  }
+
+  .section {
+    padding: 78px 0;
+  }
+
+  .container {
+    width: calc(100% - 40px);
+  }
+
+  h2 {
+    font-size: 30px;
+    margin-bottom: 26px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .about-grid,
+  .dual-grid,
+  .keyword-grid,
+  .skill-grid,
+  .award-list,
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .about-grid {
+    gap: 34px;
+  }
+
+  .portrait-wrap {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .portrait-glow {
+    width: 120px;
+    height: 120px;
+    inset: auto;
+    left: -10px;
+    top: -10px;
+  }
+
+  .portrait {
+    width: 96px;
+    height: 96px;
+    border-radius: 18px;
+  }
+
+  .mobile-name {
+    display: grid;
+    gap: 4px;
+  }
+
+  .mobile-name span {
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .about-body h2 {
+    display: none;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .keyword-grid article {
+    min-height: auto;
+  }
+
+  .self-evaluation h2 {
+    font-size: 28px;
+  }
+
+  .edu-main,
+  .role-head {
+    grid-template-columns: auto 1fr;
+  }
+
+  .edu-main time,
+  .role-head time {
+    grid-column: 1 / -1;
+  }
+
+  .education-card,
+  .experience-card,
+  .plain-card,
+  .project-card {
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .split-head {
+    display: grid;
+  }
+}
+
+</style>
+    <link rel="preconnect" href="https://miaoda.feishu.cn" />
+  <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" />
+</head>
+  <body>
+    <header class="site-header" id="siteHeader">
+      <div class="nav-shell">
+        <a class="brand" href="#hero">Eliah · 石光祖</a>
+        <nav class="nav-links" aria-label="主导航">
+          <a href="#hero">首页</a>
+          <a href="#about">关于</a>
+          <a href="#education">背景</a>
+          <a href="#experience">经历</a>
+          <a href="#projects">项目</a>
+          <a href="#skills">技能</a>
+        </nav>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="打开导航">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <nav class="mobile-menu" id="mobileMenu" aria-label="移动端导航">
+        <a href="#hero">首页</a>
+        <a href="#about">关于</a>
+        <a href="#education">背景</a>
+        <a href="#experience">经历</a>
+        <a href="#projects">项目</a>
+        <a href="#skills">技能</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <img class="hero-bg" src="https://4kuanfyra3sgm.feishuapp.com/app/app_17c2zdtcdy4/hero-bg.jpg" alt="封面风景" />
+        <div class="hero-shade"></div>
+        <div class="hero-fade"></div>
+        <div class="hero-content reveal">
+          <p class="eyebrow hero-eyebrow">你好，很高兴认识你！</p>
+          <h1>石光祖</h1>
+          <p class="hero-title">专注世界模型与多模态算法人才挖掘</p>
+          <p class="hero-subtitle">AI 行业招聘 HR 实习生 | 结果导向 · 持续突破</p>
+          <a class="scroll-link" href="#about">
+            <span>向下滚动</span>
+            <i></i>
+          </a>
+        </div>
+      </section>
+
+      <section class="section about" id="about">
+        <div class="container about-grid reveal">
+          <div class="portrait-wrap">
+            <div class="portrait-glow"></div>
+            <img class="portrait" src="https://4kuanfyra3sgm.feishuapp.com/app/app_17c2zdtcdy4/avatar.jpg" alt="石光祖" />
+            <div class="mobile-name">
+              <strong>石光祖</strong>
+              <span>HR · AI Native</span>
+            </div>
+          </div>
+          <div class="about-body">
+            <p class="eyebrow">关于我</p>
+            <h2>石光祖</h2>
+            <p class="lead">
+              我是一名郑州大学工商管理专业的学生，专注 AI 行业技术招聘，兼备互联网大厂与 AI 独角兽实习经验，坚持结果导向与自我突破。目前我正在对 AI Agent 使用抱有浓厚兴趣，并持续学习中，欢迎你和我交流分享经验！
+            </p>
+            <a class="pill-button" href="https://4kuanfyra3sgm.feishuapp.com/app/app_17c2zdtcdy4/resume.pdf">
+              下载简历
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+            </a>
+            <div class="contact-block">
+              <p class="eyebrow small">联系方式</p>
+              <div class="contact-row">
+                <a href="tel:17803997920">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.91.33 1.8.62 2.65a2 2 0 0 1-.45 2.11L8 9.76a16 16 0 0 0 6.24 6.24l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.74.5 2.65.62A2 2 0 0 1 22 16.92z"/></svg>
+                  17803997920
+                </a>
+                <a href="mailto:sgzblue123@163.com">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                  sgzblue123@163.com
+                </a>
+                <span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect x="2" y="7" width="20" height="13" rx="2"/></svg>
+                  求职方向：HR · AI Native
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft self-evaluation" id="self-evaluation">
+        <div class="container dual-grid reveal">
+          <div class="stack-col">
+            <div>
+              <p class="eyebrow">自我评价</p>
+              <h2>一些关于我的关键词</h2>
+            </div>
+            <div class="keyword-grid">
+              <article><span>01</span><p>业务理解能力强，精准匹配岗位与候选人画像。</p></article>
+              <article><span>02</span><p>结果导向，数据意识，数据复盘持续优化招聘。</p></article>
+              <article><span>03</span><p>AI 爱好者，持续学习利用 AI 工具提升工作效率。</p></article>
+              <article><span>04</span><p>细致抗压，期望未来深耕 AI 行业人力资源领域。</p></article>
+            </div>
+          </div>
+          <div class="stack-col">
+            <div>
+              <p class="eyebrow">实践探索</p>
+              <h2>我的探索与积累</h2>
+            </div>
+            <div class="project-list">
+              <article class="project-card">
+                <h3><a href="https://my.feishu.cn/docx/MmXCdcn0IoXeADxtQg4cZmLRnpg">HR实习生 · 通用工作SOP</a></h3>
+                <p>经过长期的实习实践，我积累了很多有益的工作经验，并保持着对自我工作方法论的沉淀与优化。如有异议或错误，也欢迎老师与同学们指正。</p>
+              </article>
+              <article class="project-card">
+                <h3><a href="https://4kuanfyra3sgm.feishuapp.com/app/app_17c2zdtcdy4/app/app_17c9q552grj">多语言本地化口语测评 Bot</a></h3>
+                <p>面向海外本地化招聘的语音测评 Bot。可复用于多语言场景，解决小语种面试官缺失问题，已投入业务参考。</p>
+                <div class="project-actions">
+                  <a href="https://4kuanfyra3sgm.feishuapp.com/app/app_17c2zdtcdy4/app/app_17c9q552grj">查看演示</a>
+                  <a href="https://4kuanfyra3sgm.feishuapp.com/app/app_17c2zdtcdy4/skill-multilingual-bot.md">查看 Skill 文档</a>
+                </div>
+              </article>
+              <article class="project-card">
+                <h3><a href="https://my.feishu.cn/share/base/dashboard/shrcn5in7fnym6OdxNMf0XX4o6L">招聘漏斗分析</a></h3>
+                <p>Skill Agent 驱动的招聘数据分析工具，梳理 30+ 岗位招聘链路，识别流失症结，输出可视化归因看板。</p>
+                <div class="project-actions">
+                  <a href="https://my.feishu.cn/share/base/dashboard/shrcn5in7fnym6OdxNMf0XX4o6L">查看演示</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section education" id="education">
+        <div class="container reveal">
+          <p class="eyebrow">教育背景</p>
+          <h2>学习经历</h2>
+          <div class="education-card">
+            <div class="edu-main">
+              <img src="https://4kuanfyra3sgm.feishuapp.com/app/app_17c2zdtcdy4/zzu-logo.jpg" alt="郑州大学（211）" />
+              <div>
+                <h3>郑州大学（211）</h3>
+                <p>本科 · 工商管理</p>
+                <p>GPA：80.32 / 100</p>
+              </div>
+            </div>
+            <time>2023.09 – 2027.07</time>
+            <div class="course-grid">
+              <span>人力资源管理（90）</span>
+              <span>组织行为学（85）</span>
+              <span>管理学原理（88）</span>
+              <span>市场营销（88）</span>
+              <span>概率论与数理统计（87）</span>
+            </div>
+            <p class="muted">211 高校工商管理专业，系统学习人力资源管理、组织行为学等核心课程，理论基础扎实。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft experience" id="experience">
+        <div class="container reveal">
+          <p class="eyebrow">实习 / 工作经历</p>
+          <h2>我一直在路上</h2>
+          <div class="timeline">
+            <article class="experience-card">
+              <div class="role-head">
+                <img src="https://4kuanfyra3sgm.feishuapp.com/app/app_17c2zdtcdy4/ispark-logo.jpg" alt="ISpark（视频交互式生成世界模型新锐团队）" />
+                <div>
+                  <h3>ISpark（视频交互式生成世界模型新锐团队）</h3>
+                  <p>HRBP</p>
+                  <span>用视频渲染世界。</span>
+                </div>
+                <time>2026.09 – 未知</time>
+              </div>
+              <ul>
+                <li>除基础招聘工作外，还将参与组织架构设计、绩效管理体系搭建、团队活动筹建等 HR 全模块工作。</li>
+                <li>热爱并期待探索未知领域，在世界模型赛道持续学习与成长。</li>
+              </ul>
+              <div class="tags"><span>世界模型</span><span>招聘配置</span><span>绩效管理</span><span>组织架构</span><span>人才发展</span><span>blabla</span></div>
+            </article>
+
+            <article class="experience-card">
+              <div class="role-head">
+                <img src="https://4kuanfyra3sgm.feishuapp.com/app/app_17c2zdtcdy4/vast-logo.jpg" alt="VAST（3D 世界模型 AI 独角兽）" />
+                <div>
+                  <h3>VAST（3D 世界模型 AI 独角兽）</h3>
+                  <p>HR 实习生</p>
+                  <span>Make high-quality spatial creation accessible to everyone.</span>
+                </div>
+                <time>2026.07 – 2026.09</time>
+              </div>
+              <ul>
+                <li>对接增长业务社招和实习共 30 个岗位，覆盖设计、策略优化、投放执行、增长工程等业务，招聘工作全流程跟进。</li>
+                <li>8 月份共推送简历 204 份，评估通过 166 份，通过率 81.4%；实习通过率 93.0%。</li>
+                <li>通过自主 Sourcing 产出 offer 14 份并全部接受，其中 8 人已入职，6 人待入职。</li>
+                <li>使用 Agent 搭建招聘数据漏斗，利用 AI 总结各环节卡点及流失原因，优化招聘策略。</li>
+                <li>搭建语音交互式 bot，对候选人进行小语种本土化口语测试，最终获得业务参考。</li>
+                <li>搭建并持续更新社招、实习招聘台账与工作日志，基于漏斗指标开展周会复盘。</li>
+              </ul>
+              <div class="tags"><span>3D 世界模型</span><span>增长招聘</span><span>Sourcing</span><span>招聘台账</span></div>
+            </article>
+
+            <article class="experience-card">
+              <div class="role-head">
+                <img src="https://4kuanfyra3sgm.feishuapp.com/app/app_17c2zdtcdy4/kuaishou-logo.jpg" alt="快手 · 可灵 AI" />
+                <div>
+                  <h3>快手 · 可灵 AI</h3>
+                  <p>HR 实习生</p>
+                  <span>开放，进化。</span>
+                </div>
+                <time>2026.03 – 2026.07</time>
+              </div>
+              <ul>
+                <li>对接多模态理解与生成一体化算法岗，负责实习生 HR 面试。</li>
+                <li>校招 + 实习推送简历 200+，通过率 70% 以上；组织面试 323 场；发送 offer 16 人，接受 offer 12 人。</li>
+                <li>在 Google Scholar、OpenReview、AMiner、脉脉等渠道开源并进行竞家 Mapping，协助转化落地面试。</li>
+                <li>跨业务支持 AI Infra、AI Agent、具身智能、大模型数据策略等方向。</li>
+                <li>负责校招竞家薪酬方案收集、候选人入职信息录入与流程跟进。</li>
+              </ul>
+              <div class="tags"><span>多模态算法</span><span>人才 Mapping</span><span>校招/实习</span><span>Agent 提效</span></div>
+            </article>
+
+            <article class="experience-card">
+              <div class="role-head">
+                <img src="https://4kuanfyra3sgm.feishuapp.com/app/app_17c2zdtcdy4/gaotu-logo.jpg" alt="高途 · 市场部" />
+                <div>
+                  <h3>高途 · 市场部</h3>
+                  <p>社群运营</p>
+                </div>
+                <time>2025.06 – 2025.08</time>
+              </div>
+              <ul>
+                <li>学员社群日常运营，维护群内氛围，提升用户粘性与活跃度。</li>
+                <li>用户需求收集与反馈汇总，用于提高转化率。</li>
+              </ul>
+              <div class="tags"><span>社群运营</span><span>用户增长</span><span>需求收集</span></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section campus" id="projects">
+        <div class="container reveal">
+          <p class="eyebrow">校园经历</p>
+          <h2>初步的尝试</h2>
+          <article class="plain-card">
+            <div class="split-head">
+              <div>
+                <h3>全国大学生创新创业训练计划（大创赛）</h3>
+                <p>角色：研究成员</p>
+              </div>
+              <time>2026.04 – 至今</time>
+            </div>
+            <ul>
+              <li>参与文献梳理与理论研究，构建社区食堂可持续发展评价指标体系。</li>
+              <li>协助在郑州多地开展调研、问卷与访谈数据收集，完成数据统计分析。</li>
+              <li>参与案例研究、问题总结及论文撰写，提出可持续发展实现路径。</li>
+            </ul>
+            <div class="tags"><span>文献研究</span><span>问卷调研</span><span>数据分析</span><span>论文撰写</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-soft skills" id="skills">
+        <div class="container reveal">
+          <p class="eyebrow">专业技能</p>
+          <h2>我的工具箱</h2>
+          <div class="skill-grid">
+            <article><h3>工作能力</h3><span>招聘全流程</span><span>绩效管理基础</span><span>组织与人才发展基础</span></article>
+            <article><h3>思维与成长</h3><span>数据思维</span><span>复盘意识</span><span>自我方法论沉淀</span></article>
+            <article><h3>AI 能力</h3><span>Vibe Coding 进阶中</span></article>
+          </div>
+          <div class="subsection">
+            <p class="eyebrow">荣誉奖励</p>
+            <h2>一点点认可</h2>
+          </div>
+          <div class="award-list">
+            <article><strong>校级文体积极分子</strong><span>郑州大学</span></article>
+            <article><strong>校级优秀学生干部</strong><span>郑州大学</span></article>
+          </div>
+          <div class="subsection">
+            <p class="eyebrow">兴趣爱好</p>
+            <h2>生活里的光</h2>
+          </div>
+          <div class="hobby-icons">
+            <div><span>📷</span><strong>摄影</strong></div>
+            <div><span>🎨</span><strong>绘画</strong></div>
+          </div>
+          <h3 class="gallery-title">摄影作品</h3>
+          <div class="gallery">
+            <figure><img src="https://4kuanfyra3sgm.feishuapp.com/app/app_17c2zdtcdy4/photo-1.jpg" alt="奥地利 · 因斯布鲁克" /><figcaption>奥地利 · 因斯布鲁克</figcaption></figure>
+            <figure><img src="https://4kuanfyra3sgm.feishuapp.com/app/app_17c2zdtcdy4/photo-2.jpg" alt="意大利 · 锡耶纳大教堂" /><figcaption>意大利 · 锡耶纳大教堂</figcaption></figure>
+            <figure><img src="https://4kuanfyra3sgm.feishuapp.com/app/app_17c2zdtcdy4/photo-3.jpg" alt="蓝天白云" /><figcaption>蓝天白云</figcaption></figure>
+          </div>
+          <h3 class="gallery-title">绘画作品</h3>
+          <div class="gallery">
+            <figure><img src="https://4kuanfyra3sgm.feishuapp.com/app/app_17c2zdtcdy4/painting-1.jpg" alt="《裂瞳》" /><figcaption>《裂瞳》</figcaption></figure>
+            <figure><img src="https://4kuanfyra3sgm.feishuapp.com/app/app_17c2zdtcdy4/painting-2.jpg" alt="《Tears of Steel》" /><figcaption>《Tears of Steel》</figcaption></figure>
+            <figure><img src="https://4kuanfyra3sgm.feishuapp.com/app/app_17c2zdtcdy4/painting-3.jpg" alt="《向尘隅》" /><figcaption>《向尘隅》</figcaption></figure>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 石光祖. All rights reserved.</p>
+      <p>Designed &amp; Built with care</p>
+    </footer>
+
+    <script>
+const header = document.getElementById("siteHeader");
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+const syncHeader = () => {
+  header.classList.toggle("is-scrolled", window.scrollY > 24);
+};
+
+syncHeader();
+window.addEventListener("scroll", syncHeader, { passive: true });
+
+menuBtn.addEventListener("click", () => {
+  const isOpen = mobileMenu.classList.toggle("is-open");
+  header.classList.toggle("menu-open", isOpen);
+  menuBtn.setAttribute("aria-label", isOpen ? "关闭导航" : "打开导航");
+});
+
+mobileMenu.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.remove("is-open");
+    header.classList.remove("menu-open");
+    menuBtn.setAttribute("aria-label", "打开导航");
+  });
+});
+
+const reveals = document.querySelectorAll(".reveal");
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.12 }
+);
+
+reveals.forEach((node) => observer.observe(node));
+
+</script>
+  </body>
+</html>

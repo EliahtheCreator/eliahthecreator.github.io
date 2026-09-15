@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>简历筛选编排式 Skill</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f3ee;
+        --card: #fffdf9;
+        --text: #1c1c1c;
+        --muted: rgba(28, 28, 28, 0.68);
+        --line: rgba(28, 28, 28, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #f8f5f0 0%, #f2efe9 100%);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      }
+
+      .wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 36px 20px 56px;
+      }
+
+      .hero,
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--card);
+      }
+
+      .hero {
+        padding: 26px 24px 22px;
+      }
+
+      .card {
+        padding: 20px 22px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 14px;
+        margin-top: 14px;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: rgba(28, 28, 28, 0.5);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 28px;
+        line-height: 1.25;
+      }
+
+      h2 {
+        margin: 0 0 12px;
+        font-size: 18px;
+      }
+
+      p,
+      ul,
+      ol {
+        color: var(--muted);
+        line-height: 1.72;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      ul,
+      ol {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      li + li {
+        margin-top: 6px;
+      }
+
+      .meta,
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .meta {
+        margin-top: 14px;
+      }
+
+      .meta span,
+      .chips span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: #f3f3f3;
+        color: rgba(28, 28, 28, 0.72);
+        font-size: 12px;
+      }
+
+      .back {
+        display: inline-flex;
+        margin-top: 18px;
+        color: var(--text);
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .note {
+        margin-top: 18px;
+        color: rgba(28, 28, 28, 0.46);
+        font-size: 12px;
+      }
+
+      @media (max-width: 720px) {
+        .wrap {
+          padding-inline: 14px;
+        }
+
+        .hero,
+        .card {
+          padding-inline: 18px;
+        }
+
+        h1 {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="hero">
+        <p class="eyebrow">AI 工具应用实践 · Skill</p>
+        <h1>Codex-Doubao 编排式简历评估与录入 Skill</h1>
+        <div class="meta">
+          <span>简历评估</span>
+          <span>候选人分级</span>
+          <span>流程编排</span>
+          <span>台账录入</span>
+        </div>
+      </section>
+
+      <div class="grid">
+        <article class="card">
+          <h2>项目定位</h2>
+          <p>这是一个面向 AI 视频、世界模型及相关多模态研究岗位的简历筛选工作流，尝试把“理解与判断”和“重复执行”拆开，再通过工具协作完成闭环。</p>
+        </article>
+
+        <article class="card">
+          <h2>协作方式</h2>
+          <ul>
+            <li>Codex 负责候选人研究经历理解、匹配度评估、分级和评估报告生成。</li>
+            <li>豆包负责读取简历、整理结构化信息和执行台账录入等重复性工作。</li>
+            <li>两者通过明确的输入、输出和复核节点衔接，减少人工重复整理。</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>评估维度</h2>
+          <div class="chips">
+            <span>研究能力</span>
+            <span>岗位匹配度</span>
+            <span>贡献深度</span>
+            <span>教育背景</span>
+            <span>工程能力</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>输出结果</h2>
+          <p>对候选人给出评分、结论、主要依据和需要进一步确认的风险点；重点关注真实问题理解、方法深度、算法或研究 ownership，以及与岗位的直接或可迁移匹配。</p>
+        </article>
+
+        <article class="card">
+          <h2>设计原则</h2>
+          <ul>
+            <li>关键词只用于发现线索，不能替代对研究内容和个人贡献的判断。</li>
+            <li>先完成评估和人工复核，再进入后续录入流程。</li>
+            <li>对不确定的身份、附件或字段保持待确认，不自行猜测。</li>
+          </ul>
+        </article>
+      </div>
+
+      <a class="back" href="./index.html">返回主页</a>
+      <p class="note">公开展示版：保留项目思路与能力边界，未展示内部候选人、公司或表格信息。</p>
+    </main>
+  </body>
+</html>

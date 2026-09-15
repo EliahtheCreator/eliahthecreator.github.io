@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Mapping Skill</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f3ee;
+        --card: #fffdf9;
+        --text: #1c1c1c;
+        --muted: rgba(28, 28, 28, 0.68);
+        --line: rgba(28, 28, 28, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #f8f5f0 0%, #f2efe9 100%);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      }
+
+      .wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 36px 20px 56px;
+      }
+
+      .hero,
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--card);
+      }
+
+      .hero {
+        padding: 26px 24px 22px;
+      }
+
+      .card {
+        padding: 20px 22px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 14px;
+        margin-top: 14px;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: rgba(28, 28, 28, 0.5);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 28px;
+        line-height: 1.25;
+      }
+
+      h2 {
+        margin: 0 0 12px;
+        font-size: 18px;
+      }
+
+      p,
+      ul,
+      ol {
+        color: var(--muted);
+        line-height: 1.72;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      li + li {
+        margin-top: 6px;
+      }
+
+      .meta,
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .meta {
+        margin-top: 14px;
+      }
+
+      .meta span,
+      .chips span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: #f3f3f3;
+        color: rgba(28, 28, 28, 0.72);
+        font-size: 12px;
+      }
+
+      .back {
+        display: inline-flex;
+        margin-top: 18px;
+        color: var(--text);
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .note {
+        margin-top: 18px;
+        color: rgba(28, 28, 28, 0.46);
+        font-size: 12px;
+      }
+
+      @media (max-width: 720px) {
+        .wrap {
+          padding-inline: 14px;
+        }
+
+        .hero,
+        .card {
+          padding-inline: 18px;
+        }
+
+        h1 {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="hero">
+        <p class="eyebrow">AI 工具应用实践 · Skill</p>
+        <h1>3D Mapping Skill</h1>
+        <div class="meta">
+          <span>3D 生成</span>
+          <span>动态 3D / 4D</span>
+          <span>人才 Mapping</span>
+          <span>公开渠道检索</span>
+        </div>
+      </section>
+
+      <div class="grid">
+        <article class="card">
+          <h2>项目定位</h2>
+          <p>面向 3D 生成、动态 3D、4D、世界模型和神经渲染等方向，寻找具有真实研究积累和方向潜力的高年级博士及潜在候选人。</p>
+        </article>
+
+        <article class="card">
+          <h2>信息渠道</h2>
+          <div class="chips">
+            <span>Google Scholar</span>
+            <span>LinkedIn</span>
+            <span>GitHub</span>
+            <span>论文与项目主页</span>
+            <span>实验室主页</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>判断维度</h2>
+          <ul>
+            <li>研究方向是否真正连接 3D 生成、动态世界或相关底层技术问题。</li>
+            <li>论文、项目、代码、数据集或 Demo 是否能体现持续研究和实际产出。</li>
+            <li>候选人是否表现出问题定义、方向形成和端到端推进的 Owner 信号。</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>输出内容</h2>
+          <p>形成候选人 Mapping，整理研究方向、论文成果、项目证据、技术匹配度和公开联系方式，并将高匹配候选人与待确认候选人分开呈现。</p>
+        </article>
+
+        <article class="card">
+          <h2>信息边界</h2>
+          <p>只使用公开的学术、职业和项目资料，不推断私人联系方式，不抓取私密社交信息，也不把公开研究关键词直接等同于个人贡献。</p>
+        </article>
+      </div>
+
+      <a class="back" href="./index.html">返回主页</a>
+      <p class="note">公开展示版：保留研究判断与检索思路，未展示具体候选人名单或内部招聘约束。</p>
+    </main>
+  </body>
+</html>

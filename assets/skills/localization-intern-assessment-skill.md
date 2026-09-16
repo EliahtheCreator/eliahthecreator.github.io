@@ -1,8 +1,3 @@
----
-name: localization-intern-assessment
-description: Build a multilingual localization intern oral assessment bot with five fixed rounds, speech-first answering, scoring rules, and anti-cheating controls.
----
-
 # 多语言本地化口语测评 Bot Skill
 
 ## 适用场景

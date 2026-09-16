@@ -1,8 +1,3 @@
----
-name: resume-screening-orchestration
-description: Use Codex for resume judgment and a separate execution tool for extraction or ledger entry, so resume screening can keep both reasoning quality and operational efficiency.
----
-
 # Codex-Doubao 编排式简历评估与录入 Skill
 
 ## 适用场景

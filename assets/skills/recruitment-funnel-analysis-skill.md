@@ -1,8 +1,3 @@
----
-name: recruitment-funnel-analysis
-description: Analyze recruitment pipeline data, calculate funnel conversion, classify loss reasons, and produce practical weekly improvement actions.
----
-
 # 招聘漏斗分析 Skill
 
 ## 适用场景

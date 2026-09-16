@@ -1,8 +1,3 @@
----
-name: ai-video-dynamic-3d-mapping
-description: Map AI video, dynamic 3D/4D, world-model, neural rendering, and AI-native runtime research talent from public sources with substantive fit judgment.
----
-
 # AI 视频与动态 3D 人才 Mapping Skill
 
 ## 适用场景

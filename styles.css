@@ -518,6 +518,16 @@ h3 {
   margin: 0;
 }
 
+.project-video {
+  display: block;
+  width: min(100%, 720px);
+  aspect-ratio: 16 / 9;
+  margin-top: 18px;
+  border-radius: 10px;
+  background: #111;
+  object-fit: contain;
+}
+
 .project-actions {
   display: flex;
   flex-wrap: wrap;
